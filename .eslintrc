@@ -1,0 +1,69 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/typescript"
+  ],
+  "rules": {
+    "no-undef": "off",
+    "no-console": "off", // console.log 가능
+    "import/prefer-default-export": "off", // export default 권장
+    "react/react-in-jsx-scope": "off", // jsx를 사용하여도 React를 꼭 import 하지 않아도 됨
+    "react/prop-types": "off", // propTypes를 사용하지 않음
+    "no-control-regex": "off", // 정규식에서 제어 문자 허용
+    "no-unused-vars": "warn", // 사용안한 변수 경고 안 함
+    "no-extra-boolean-cast": "off", // 불필요한 boolean 캐스트
+    "react/jsx-key": "warn", // 반복문으로 생성하는 요소에 key 강제
+    "no-alert": "warn", // alert 사용 금지 경고
+    "react/jsx-no-useless-fragment": "warn", // 불필요한 fragment 사용시 경고
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".jsx", ".tsx"] } // jsx 사용가능한 확장자 설정
+    ],
+    "@typescript-eslint/no-empty-function": ["error", { "allow": ["arrowFunctions"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      } // import 시 확장자명은 사용하지 않는다.
+    ],
+    "react/no-unstable-nested-components": ["warn", { "allowAsProps": true }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/no-unresolved": "off"
+  },
+  "ignorePatterns": ["public", "build", ".next", "node_modules", "*.config.js"],
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
